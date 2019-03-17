@@ -1,13 +1,13 @@
 function imgo = HistoE(imgi)
-    %ֱ��ͼ����
-    %���� ͼ��
-    %��� ͼ��
+    %直方图均衡
+    %输入 图像
+    %输出 图像
     G=zeros(256,1);
-    h=size(imgi,1);%����ͼ��ĸ�
-    w=size(imgi,2);%����ͼ��Ŀ�
-    histo=HistoG(imgi);%����ͼ���ֱ��ͼ
+    h=size(imgi,1);%输入图像的高
+    w=size(imgi,2);%输入图像的宽
+    histo=HistoG(imgi);%输入图像的直方图
     
-    %��ȡֱ��ͼ����ı任ӳ��
+    %求取直方图均衡的变换映射
     s=0;
     for i=1:256
         s=s+255*histo(i);
@@ -20,7 +20,7 @@ function imgo = HistoE(imgi)
         end
         G(i)=temp;
     end
-    %���ݱ任ӳ�����ֱ��ͼ������ͼ��
+    %根据变换映射计算直方图均衡后的图像
     imgo=zeros(h,w);
     for i=1:h
         for j=1:w

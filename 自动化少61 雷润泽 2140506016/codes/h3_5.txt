@@ -1,5 +1,5 @@
-%µÚÈı´Î×÷ÒµµÚ4Ìâ
-%ÀûÓÃÖ±·½Í¼¶ÔÍ¼ÏñelainºÍwoman½øĞĞ·Ö¸î
+%ç¬¬ä¸‰æ¬¡ä½œä¸šç¬¬4é¢˜
+%åˆ©ç”¨ç›´æ–¹å›¾å¯¹å›¾åƒelainå’Œwomanè¿›è¡Œåˆ†å‰²
 
 str='elain.bmp';
 stro='elain_div.bmp';
@@ -10,7 +10,7 @@ if ~isempty(map)
 end
 img=im2double(img).*255;
 h=HistoG(img);
-%Á½¸ö·åÖµ
+%ä¸¤ä¸ªå³°å€¼
 im1=1;
 m1=h(1);
 im2=2;
@@ -31,7 +31,7 @@ if(im1>im2)
     im1=im2;
     im2=temp;
 end
-%Á½·åÖ®¼äµÄ¹ÈÖµ
+%ä¸¤å³°ä¹‹é—´çš„è°·å€¼
 im3=im1;
 m3=h(im1);
 for i=im1+1:im2
@@ -40,8 +40,8 @@ for i=im1+1:im2
         m3=h(i);
     end
 end
-th=im3;%ãĞÖµ
-%·Ö¸î
+th=im3;%é˜ˆå€¼
+%åˆ†å‰²
 imgdiv=img;
 for i=1:size(img,1)
     for j=1:size(img,2)
@@ -57,13 +57,13 @@ imwrite(imgdiv./255,stro);
 
 subplot(2,2,1);
 imshow(img./255);
-title('Ô­Í¼Ïñ');
+title('åŸå›¾åƒ');
 subplot(2,2,2);
 imhist(img./255);
-title('Ô­Í¼ÏñµÄÖ±·½Í¼');
+title('åŸå›¾åƒçš„ç›´æ–¹å›¾');
 subplot(2,2,3);
 imshow(imgdiv./255);
-title('·Ö¸îºóµÄÍ¼Ïñ');
+title('åˆ†å‰²åçš„å›¾åƒ');
 subplot(2,2,4);
 imhist(imgdiv./255);
-title('·Ö¸îºóµÄÍ¼ÏñµÄÖ±·½Í¼');
+title('åˆ†å‰²åçš„å›¾åƒçš„ç›´æ–¹å›¾');

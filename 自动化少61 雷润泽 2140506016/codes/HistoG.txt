@@ -1,10 +1,10 @@
 function histo = HistoG(img)
-    %��ȡֱ��ͼ
-    %���� ͼ�� 0-255
-    %��� ֱ��ͼ����
-    h=size(img,1);%����ͼ��ĸ�
-    w=size(img,2);%����ͼ��Ŀ�
-    %��ȡֱ��ͼ
+    %获取直方图
+    %输入 图像 0-255
+    %输出 直方图数据
+    h=size(img,1);%输入图像的高
+    w=size(img,2);%输入图像的宽
+    %求取直方图
     histo=zeros(256,1);
     for i=1:h
         for j=1:w

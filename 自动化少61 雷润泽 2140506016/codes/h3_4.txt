@@ -1,9 +1,9 @@
-%µÚÈı´Î×÷ÒµµÚ4Ìâ
-%¶ÔelainºÍlenaÍ¼Ïñ½øĞĞ7*7µÄ¾Ö²¿Ö±·½Í¼ÔöÇ¿
+%ç¬¬ä¸‰æ¬¡ä½œä¸šç¬¬4é¢˜
+%å¯¹elainå’Œlenaå›¾åƒè¿›è¡Œ7*7çš„å±€éƒ¨ç›´æ–¹å›¾å¢å¼º
 str='lena.bmp';
 stro='lena_lhs.bmp';
 
-%²ÎÊı
+%å‚æ•°
 %elain
 % k0=1.2;
 % k1=0.02;
@@ -20,15 +20,15 @@ if ~isempty(map)
     img=ind2gray(img,map);
 end
 img=im2double(img).*255;
-mg=mean2(img);%È«¾Ö¾ùÖµ
-sdg=std2(img);%È«¾Ö±ê×¼²î
+mg=mean2(img);%å…¨å±€å‡å€¼
+sdg=std2(img);%å…¨å±€æ ‡å‡†å·®
 
-imgex=expand(img,7);%À©Õ¹Í¼Ïñ
+imgex=expand(img,7);%æ‰©å±•å›¾åƒ
 imglhs=img;
 for i=1:size(img,1)
     for j=1:size(img,2)
-        ml=mean2(imgex(i:i+6,j:j+6));%¾Ö²¿¾ùÖµ
-        sdl=std2(imgex(i:i+6,j:j+6));%¾Ö²¿±ê×¼²î
+        ml=mean2(imgex(i:i+6,j:j+6));%å±€éƒ¨å‡å€¼
+        sdl=std2(imgex(i:i+6,j:j+6));%å±€éƒ¨æ ‡å‡†å·®
         if(ml<k0*mg&&sdl>k1*sdg&&sdl<k2*sdg)
             imglhs(i,j)=E*img(i,j);
         end
@@ -39,13 +39,13 @@ imwrite(imglhs./255,stro);
 
 subplot(2,2,1);
 imshow(img./255);
-title('Ô­Í¼Ïñ');
+title('åŸå›¾åƒ');
 subplot(2,2,2);
 imhist(img./255);
-title('Ô­Í¼ÏñµÄÖ±·½Í¼');
+title('åŸå›¾åƒçš„ç›´æ–¹å›¾');
 subplot(2,2,3);
 imshow(imglhs./255);
-title('¾Ö²¿Ö±·½Í¼ÔöÇ¿ºóµÄÍ¼Ïñ');
+title('å±€éƒ¨ç›´æ–¹å›¾å¢å¼ºåçš„å›¾åƒ');
 subplot(2,2,4);
 imhist(imglhs./255);
-title('¾Ö²¿Ö±·½Í¼ÔöÇ¿ºóµÄÍ¼ÏñµÄÖ±·½Í¼');
+title('å±€éƒ¨ç›´æ–¹å›¾å¢å¼ºåçš„å›¾åƒçš„ç›´æ–¹å›¾');

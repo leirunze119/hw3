@@ -1,7 +1,7 @@
 function imge = expand(imgo,psize)
-    %imgo:Ô­Ê¼Í¼Ïñ
-    %psize:Ê¹ÓÃµÄÄ£°å±ß³¤
-    %imge:À©Õ¹ºóµÄÍ¼Ïñ
+    %imgo:åŸå§‹å›¾åƒ
+    %psize:ä½¿ç”¨çš„æ¨¡æ¿è¾¹é•¿
+    %imge:æ‰©å±•åçš„å›¾åƒ
     imge=zeros(size(imgo,1)+psize-1,size(imgo,2)+psize-1);
     h1=1+(psize-1)/2;
     h2=size(imge,1)-(psize-1)/2;
