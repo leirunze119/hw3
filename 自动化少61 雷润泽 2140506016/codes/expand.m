@@ -1,0 +1,32 @@
+function imge = expand(imgo,psize)
+    %imgo:原始图像
+    %psize:使用的模板边长
+    %imge:扩展后的图像
+    imge=zeros(size(imgo,1)+psize-1,size(imgo,2)+psize-1);
+    h1=1+(psize-1)/2;
+    h2=size(imge,1)-(psize-1)/2;
+    w1=1+(psize-1)/2;
+    w2=size(imge,2)-(psize-1)/2;
+    imge(h1:h2,w1:w2)=imgo;
+    for i=1:size(imge,1)
+        for j=1:size(imge,2)
+            if(i<h1&&j<w1)
+                imge(i,j)=imge(h1,w1);
+            elseif(i>h2&&j<w1)
+                imge(i,j)=imge(h2,w1);
+            elseif(i<h1&&j>w2)
+                imge(i,j)=imge(h1,w2);
+            elseif(i>h2&&j>w2)
+                imge(i,j)=imge(h2,w2);
+            elseif(i<h1)
+                imge(i,j)=imge(h1,j);
+            elseif(i>h2)
+                imge(i,j)=imge(h2,j);
+            elseif(j<w1)
+                imge(i,j)=imge(i,w1);
+            elseif(j>w2)
+                imge(i,j)=imge(i,w2);
+            end
+        end
+    end
+end

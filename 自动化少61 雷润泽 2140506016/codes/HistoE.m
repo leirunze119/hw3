@@ -1,0 +1,38 @@
+function imgo = HistoE(imgi)
+    %直方图均衡
+    %输入 图像
+    %输出 图像
+    G=zeros(256,1);
+    h=size(imgi,1);%输入图像的高
+    w=size(imgi,2);%输入图像的宽
+    histo=HistoG(imgi);%输入图像的直方图
+    
+    %求取直方图均衡的变换映射
+    s=0;
+    for i=1:256
+        s=s+255*histo(i);
+        temp=round(s);
+        if(temp<0)
+            temp=0;
+        end
+        if(temp>255)
+            temp=255;
+        end
+        G(i)=temp;
+    end
+    %根据变换映射计算直方图均衡后的图像
+    imgo=zeros(h,w);
+    for i=1:h
+        for j=1:w
+            temp=round(imgi(i,j));
+            if(temp<0)
+                temp=0;
+            end
+            if(temp>255)
+                temp=255;
+            end
+            imgo(i,j)=G(temp+1);
+        end
+    end
+end
+

@@ -1,0 +1,9 @@
+%第三次作业第1题
+%把附件图像的直方图画出
+str='woman2.bmp';
+[img,map]=imread(str);
+if ~isempty(map)
+    img=ind2gray(img,map);
+end
+%绘制直方图
+imhist(img);
